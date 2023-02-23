@@ -51,7 +51,16 @@ body{
 }
 
 input, textarea{
-  width: 95%;
+  width: 92%;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  border-radius: var(--rounded);
+  border: 1px solid #bbb;
+}
+
+select{
+  width: 100%;
   padding: .75rem 1rem;
   font-size: 1rem;
   outline: none;
@@ -63,10 +72,16 @@ input:focus, textarea:focus{
   border-color: var(--blue);
   box-shadow: 0 0 0 .25rem var(--blue-light);
 }
+
 label{
   margin-bottom: .25rem;
   display: inline-block;
 }
+
+#second, #third{
+  display: none;
+}
+
 .btn-submit{
   padding: 1rem 2rem;
   cursor: pointer;
