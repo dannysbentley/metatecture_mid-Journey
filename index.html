@@ -59,6 +59,7 @@
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
           form.reset()
+          form.r
           alert('Success!')
         })
         .catch(error => console.error('Error!', error.message))
