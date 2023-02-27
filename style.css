@@ -29,17 +29,6 @@ body{
   --rounded-md: .5rem;
 }
 
-.wrapper {
-  width: 100%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  display: grid;
-  place-items: center;
-  gap: 15px;
-}
-
 /* CONTACT */ 
 .contact{
   max-width: 640px;
