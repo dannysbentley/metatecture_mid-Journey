@@ -1,8 +1,12 @@
 var subjectObject = {
   "Architecture": {
-    "Modern minimalism": ["Residential", "Commercial"],
-    "Sculptural Biomimicry ": ["Residential", "Commercial"]   
-  },
+    "Modern Minimalist": [
+      {name: "Option 1",  imageUrl: "Architecture/modern_minimalist/mm_img1.jpg" },
+      {name: "Option 2",  imageUrl: "Architecture/modern_minimalist/mm_img2.jpg" }] ,
+    "Organic Landmark" : [
+      {name: "Option 1",  imageUrl: "Architecture/organic_landmark/ol_img1.jpg" },
+      {name: "Option 2",  imageUrl: "Architecture/organic_landmark/ol_img2.jpg" }]
+    },
 
   "Interior Design": {
     "Barefoot Luxury": ["Residential", "Hospitality"],
@@ -14,55 +18,53 @@ var subjectObject = {
   }
 }
 
-const list = ["Option 1", "Option 2", "Option 3", "Option 4"];
-
 window.onload = function(){
   var first = document.getElementById('first')
   var second = document.getElementById('second')
-  var third = document.getElementById('third')
-  var container = document.getElementById('container');
+  var checkboxesDiv = document.getElementById("checkboxes");
 
-  //Test to list checkboxes.
-  list.forEach((option) => {
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.name = "Options";
-    checkbox.value = option;
-
-    const label = document.createElement("label");
-    label.appendChild(document, createTextNode(option));
-
-    container.appendChild(checkbox);
-    container.appendChild(label);
-    checkboxesContainer.appendChild(document.createElement("br"));
-  });
-
+  // First Option 
   for(var x in subjectObject){
-      // console.log(x);
       first.options[first.options.length] = new Option(x)
   }
 
+  // Second Option 
   first.onchange = function(){
       second.length = 1
-      third.length = 1
+      checkboxesDiv.length = 1
 
       second.style.display = 'block'
-      third.style.display = 'none'
+      checkboxesDiv.style.display = 'none'
 
       for(var y in subjectObject[this.value]){
-          // console.log(y);
           second.options[second.options.length] = new Option(y)
       }
   }
 
+  // Third Images 
   second.onchange = function(){
-      third.length = 1
-
-      third.style.display = 'block'
-      z = subjectObject[first.value][this.value]
+    checkboxesDiv.length = 1;
+    checkboxesDiv.style.display = 'block';
+    
+    z = subjectObject[first.value][this.value]
       console.log(z);
       for(let i=0; i<z.length; i++){
-          third.options[third.options.length] = new Option(z[i])
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = "options";
+        checkbox.value = z[i.name];
+
+        const label = document.createElement("label");
+
+        const img = document.createElement("img");
+        img.src = z[i].imageUrl;
+        label.appendChild(img);
+
+        const text = document.createTextNode(z[i].name);
+        label.appendChild(text);
+
+        checkboxesDiv.appendChild(checkbox);
+        checkboxesDiv.appendChild(label);
       }
   }
 }
