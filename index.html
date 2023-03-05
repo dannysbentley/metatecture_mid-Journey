@@ -13,10 +13,9 @@
 
 <body>
   <div class="contact">
-    <h1 class="contact-Title">dwp | metatecture AI</h1>
-    <p class="contact-description">Generated designs using artificial intelligence</p>
-    <form action="" name="AI-metatecture">
-      <div class="form-group">
+    <h1 class="contact-Title">dwp | metatecture AI Designer</h1>
+    <form action="" name="metatecture-ai">
+      <div class="form-group">        
         <label for="email">Email</label>
         <input type="email" name="email" id="email">        
       </div>
@@ -27,18 +26,18 @@
       </div>     
 
       <div class="form-group">        
-        <select name="first" id="first">          
+        <select name="dicicpline" id="first">          
           <option value=""> Select Disipline </option></select>                   
       </div>     
 
       <div class="form-group">
-        <select name="second" id="second">
+        <select name="design" id="second">
           <option value=""> Select Design Style </option>
-        </select>
+        </select>            
       </div>
-
+      
       <div class="form-group">
-        <div class="checkboxes" id="checkboxes"></div>
+        <div name="checkboxes1 "id="checkboxes"></div>
       </div>
       
       <button type="submit" class="btn-submit">Submit</button>
@@ -52,6 +51,7 @@
     const form = document.forms['metatecture-ai']
   
     form.addEventListener('submit', e => {
+      console.log(e)
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {

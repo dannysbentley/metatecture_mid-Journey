@@ -13,7 +13,6 @@ body{
   min-height: 100vh;
   line-height: 1.5;
   padding: 0 1rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,18 +22,18 @@ body{
   --shadow: 0 .5rem 1rem rgba(0,0,0,.05);
   --blue: #0D99FF;
   --blue-light: #CFEBFF;
-  --blue-dark: #0A7ACC;
-  
+  --blue-dark: #0A7ACC;  
   --rounded: .25rem;
   --rounded-md: .5rem;
 }
 
 /* CONTACT */ 
 .contact{
-  max-width: 640px;
+  width: 60%;
+  
   box-shadow: var(--shadow);
   padding: 1.5rem;
-  border-radius: var(--rounded-md);  
+  border-radius: var(--rounded-md);
 }
 
 .contact-title {
@@ -50,52 +49,44 @@ body{
   margin-bottom: 1.5rem;
 }
 
-.checkboxes {
-  height: 200px;
-  width: 200px;
-  background-color: #ffffff;
-  box-shadow: 0 0 25px rgba(17, 1, 68, 0.08);
-  border-radius: 8px;
-  position: relative;
-  cursor: pointer;
+.checkbox {
+  margin: 15px;
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  background-position: center center;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 input[type="checkbox"] {
   -webkit-appearance: none;
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position:relative;
+  width: 90%;
+  height: 90%;
   cursor: pointer;
 }
 
 input[type="checkbox"]:after {
-  position: relative;
+  position: absolute;
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
   content: "\f111";
-  font-size: 24px;
+  font-size: 18px;
   color: #478bfb;
+  left: 1px;
+  top: -5px;
 }
 
 input[type="checkbox"]:checked:after {
-  font-weight: 900;
   content: "\f058";
   color: #478bfb;
 }
 
-.checkboxes img {
-  width: 70%;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  cursor: pointer;
-}
-
 input, textarea{
-  width: 92%;
+  width: 94%;
   padding: .75rem 1rem;
   font-size: 1rem;
   outline: none;
@@ -141,4 +132,20 @@ label{
 }
 .btn-submit:focus, .btn-submit:active{
   box-shadow: 0 0 0 .25rem var(--blue-light);
+}
+
+@media screen and (min-width: 950px) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .checkbox{
+    border: 2px solid green;
+  }
+
+  input[type="checkbox"]:after {
+    font-size: 22px;
+    width: 100%;
+  }
 }
