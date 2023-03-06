@@ -37,7 +37,9 @@
       </div>
       
       <div class="form-group">
-        <div name="checkboxes1 "id="checkboxes"></div>
+        <p id="checkbox-title"></p>
+        <div name="checkboxes1 "id="checkboxes">
+        </div>
       </div>
       
       <button type="submit" class="btn-submit">Submit</button>
@@ -55,12 +57,14 @@
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
-          form.reset()
-          form.r
-          alert('Success!')
+          if (response.ok) {
+            window.location.href = 'thank-you.html';
+          } else {
+            alert('Oops! Something went wrong.');
+          }
         })
         .catch(error => console.error('Error!', error.message))
-    })
+    });
   </script>
 
   <script src="App.js"></script>

@@ -384,6 +384,7 @@ window.onload = function(){
   var first = document.getElementById('first')
   var second = document.getElementById('second')
   var checkboxesDiv = document.getElementById("checkboxes");
+  var checkboxtitle = document.getElementById("checkbox-title");
 
   // First Option 
   for(var x in subjectObject){
@@ -392,12 +393,12 @@ window.onload = function(){
 
   // Second Option 
   first.onchange = function(){
-      second.length = 1
-      checkboxesDiv.length = 1
+      second.length = 1;
+      checkboxesDiv.length = 1;
 
-      second.style.display = 'block'
-      checkboxesDiv.style.display = 'none'
-
+      second.style.display = 'block';
+      checkboxesDiv.style.display = 'none';
+      checkboxtitle.style.display = 'none';
       for(var y in subjectObject[this.value]){
           second.options[second.options.length] = new Option(y)
       }
@@ -405,11 +406,13 @@ window.onload = function(){
 
   // Third Images 
   second.onchange = function(){
+    checkboxtitle.style.display = "block";
+    checkboxtitle.textContent = "Select Up to 6 Images:";
     checkboxesDiv.innerHTML = "";
     checkboxesDiv.style.display = "flex";
     checkboxesDiv.style.flexWrap = "wrap";
     checkboxesDiv.style.alignContent = "center";
-    //checkboxesDiv.style.border = "2px solid blue"
+    checkboxesDiv.value = "test";
     
     const options = subjectObject[first.value][this.value];
     for(let i=0; i<options.length; i++){
