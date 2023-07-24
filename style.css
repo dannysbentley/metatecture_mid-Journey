@@ -120,7 +120,7 @@ label{
 }
 */
 
-.btn-submit{
+.btn-submit, .btn-return{
   padding: 1rem 2rem;
   cursor: pointer;
   border-radius: var(--rounded);
@@ -130,10 +130,10 @@ label{
   outline: none;
   font-size: 1rem;
 }
-.btn-submit:hover{
+.btn-submit:hover, .btn-return:hover{
   background-color: var(--blue-dark);
 }
-.btn-submit:focus, .btn-submit:active{
+.btn-submit:focus, .btn-submit:active, .btn-return:focus, .btn-return:active{
   box-shadow: 0 0 0 .25rem var(--blue-light);
 }
 
